@@ -37,12 +37,12 @@ public class WeightedGraphApp extends Application {
 	//create button for ShortestPath
 	private Button buttonSP = new Button("Show Shortest Path");
 	//create arrayList of objs 
-	private ArrayList list = new ArrayList<>();
+	private ArrayList<Vertex> list = new ArrayList<>();
 	//create arrayList for edges
-	private ArrayList edgesList = new ArrayList<>();
+	private ArrayList<Edge> edgesList = new ArrayList<>();
 	//create label for status
 	private Label label = new Label();
-	private WeightedGraph graphVar = null;
+	private WeightedGraph<Vertex> graphVar = null;
 	//create obj graphview class
 	private GraphView viewOb = new GraphView();
 	
@@ -101,7 +101,7 @@ public class WeightedGraphApp extends Application {
 		{
 			//call updateGraph() method
 			updateGraph();
-			WeightedGraph.Tree tree = graphVar.getMinimumSpanningTree();
+			WeightedGraph.MST tree = graphVar.getMinimumSpanningTree();
 			//set tree
 			viewOb.set_Tree(tree);
 			//set path is null to repaintMethod()
@@ -181,7 +181,7 @@ public class WeightedGraphApp extends Application {
 		//set tree to null
 		private AbstractGraph.Tree tree = null;
 		//set path to null
-		private List path = null;
+		private List<Vertex> path = null;
 		//create line object
 		private Line line = new Line();
 		
